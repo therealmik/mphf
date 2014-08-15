@@ -16,6 +16,7 @@ type KeyValue struct {
 }
 ```
 
-Then simply call `phf = mphf.BuildMPHF(items)`
+Then simply call `phf, ok = mphf.BuildMPHF(items)`.  If it fails, keep trying - it
+will pick a new random hash function every time.
 
 You can now query the resulting MPHF object with `value, ok := phf.Get(key)`
